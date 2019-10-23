@@ -7,3 +7,5 @@ peewee==3.2.2
 psycopg2-binary==2.7.4
 Werkzeug==0.14.1
 gunicorn==19.9.0
+requests==2.22.0
+beautifulsoup4==4.7.1
