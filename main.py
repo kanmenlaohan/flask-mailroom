@@ -8,16 +8,18 @@ from model import Donation, Donor
 from time_api import time
 
 app = Flask(__name__)
-app.secret_key = os.environ.get('SECRET_KEY').encode()
+# app.secret_key = os.environ.get('SECRET_KEY').encode()
+
 
 @app.route('/')
 def home():
-    return redirect(url_for('time'))
+    return redirect(url_for('utc_time'))
 
 @app.route('/time')
-def time():
-    time = time()
-    return render_template('time.html', time=time)
+def utc_time():
+    utc_time = time()
+    # return render_template('time.html', time=utc_time)
+    return render_template('local_time.jinja2', time=utc_time)
 
 @app.route('/donations')
 def all():
