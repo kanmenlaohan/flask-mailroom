@@ -7,4 +7,4 @@ def time():
     time_soup = BeautifulSoup(response.content, "html.parser")
     epoch_time = time_soup.find_all("h3", class_="text-danger")
 
-    return epoch_time[0].getText()
+    return epoch_time[0].getText().split()[0]
