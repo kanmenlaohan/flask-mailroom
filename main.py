@@ -8,7 +8,7 @@ from model import Donation, Donor
 from time_api import time
 
 app = Flask(__name__)
-# app.secret_key = os.environ.get('SECRET_KEY').encode()
+app.secret_key = os.environ.get('SECRET_KEY').encode()
 
 
 @app.route('/')
