@@ -1,11 +1,10 @@
 import os
 import base64
-
 from flask import Flask, render_template, request, redirect, url_for, session
-
 from model import Donation, Donor
-
 from time_api import time
+from piglatin import get_fact, pig_latin_translation
+
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY').encode()
@@ -20,6 +19,12 @@ def utc_time():
     utc_time = time()
     # return render_template('time.html', time=utc_time)
     return render_template('local_time.jinja2', time=utc_time)
+
+@app.route('/piglatin')
+def piglatin():
+    url = pig_latin_translation()
+
+    return render_template('piglatin.jinja2', url=url)
 
 @app.route('/donations')
 def all():
